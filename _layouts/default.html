@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UruBot - S&oacute;lo Noticias</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <meta charset="utf-16" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon"
+      type="image/png"
+      href="/public/favicon.png">
+  </head>
+  <body class="markdown-body">
+    {{content | extlinks:page}}
+    <script>
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));
+
+  twttr.ready(function(twttr){
+    twttr.widgets.createTimeline(
+      {
+        sourceType: "profile",
+        userId: "849583034999468032"
+      },
+      document.getElementById("timeline")
+    );
+    twttr.widgets.createTimeline(
+      {
+        sourceType: "collection",
+        id: "849660649366056966"
+      },
+      document.getElementById("filtrado")
+    );
+  });
+
+</script>
+  </body>
+</html>
